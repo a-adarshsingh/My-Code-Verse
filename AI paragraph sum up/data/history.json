@@ -1,0 +1,75 @@
+{
+ "guest": [
+  {
+   "title": "Resolution and reasoning",
+   "kind": "topic",
+   "words": 250,
+   "time": "06 Oct 21:45",
+   "result": {
+    "paragraph": "Resolution and reasoning are two fundamental concepts that are often intertwined in various fields, including mathematics, science, philosophy, and everyday decision-making. At its core, resolution refers to the process of arriving at a conclusion or a final answer to a problem or question. This can involve a range of techniques, from logical deduction to empirical evidence, and can be influenced by factors such as cognitive biases and personal experiences. On the other hand, reasoning is a broader term that encompasses the mental process of drawing inferences, making connections, and evaluating information to arrive at a conclusion. Reasoning can be deductive, where a conclusion is logically derived from a set of premises, or inductive, where a generalization is made based on specific observations.\n\nEffective resolution and reasoning require a combination of critical thinking, analytical skills, and creativity. In mathematics, for example, resolution often involves finding a solution to an equation or a system of equations, while reasoning may involve applying mathematical principles to a specific problem. In science, resolution may involve identifying a pattern or trend in data, while reasoning may involve explaining the underlying mechanisms that produce that pattern. In everyday life, resolution and reasoning are essential for making informed decisions, evaluating evidence, and solving problems. By combining resolution and reasoning, individuals can develop a deeper understanding of the world around them and make more informed choices. The interplay between resolution and reasoning is complex and multifaceted, and understanding how they work together is crucial for achieving success in a wide range of contexts.",
+    "words_actual": 254,
+    "elapsed": 854.3,
+    "short_summary": "Resolution and reasoning are fundamental concepts that are intertwined in various fields, involving techniques like logical deduction and empirical evidence, and requiring critical thinking, analytical skills, and creativity.",
+    "key_points": [],
+    "keywords": [
+     "resolution",
+     "reasoning",
+     "critical thinking",
+     "analytical skills",
+     "creativity",
+     "mathematics",
+     "science",
+     "problem-solving",
+     "decision-making"
+    ],
+    "terms": [
+     {
+      "term": "resolution",
+      "meaning_hi": "निर्णय लेने की प्रक्रिया (process of arriving at a conclusion)",
+      "meaning_en": "process of arriving at a conclusion"
+     },
+     {
+      "term": "reasoning",
+      "meaning_hi": "विचार करने की प्रक्रिया (mental process of drawing inferences)",
+      "meaning_en": "mental process of drawing inferences"
+     },
+     {
+      "term": "critical thinking",
+      "meaning_hi": "विश्लेषणात्मक सोच (analytical thinking)",
+      "meaning_en": "analytical thinking"
+     },
+     {
+      "term": "analytical skills",
+      "meaning_hi": "विश्लेषणात्मक कौशल (analytical skills)",
+      "meaning_en": "analytical skills"
+     },
+     {
+      "term": "creativity",
+      "meaning_hi": "रचनात्मकता (creativity)",
+      "meaning_en": "creativity"
+     },
+     {
+      "term": "mathematics",
+      "meaning_hi": "गणित (mathematics)",
+      "meaning_en": "mathematics"
+     },
+     {
+      "term": "science",
+      "meaning_hi": "विज्ञान (science)",
+      "meaning_en": "science"
+     },
+     {
+      "term": "problem-solving",
+      "meaning_hi": "समस्या समाधान करने की प्रक्रिया (problem-solving process)",
+      "meaning_en": "problem-solving process"
+     },
+     {
+      "term": "decision-making",
+      "meaning_hi": "निर्णय लेने की प्रक्रिया (decision-making process)",
+      "meaning_en": "decision-making process"
+     }
+    ]
+   }
+  }
+ ]
+}
