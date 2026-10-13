@@ -1,0 +1,97 @@
+x-common-env: &common-env
+  EUREKA_URL: http://discovery-server:8761/eureka
+  JWT_SECRET: ${JWT_SECRET:-dev-secret-dev-secret-dev-secret-dev-secret}
+  DB_USER: shop
+  DB_PASSWORD: shop
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: shop
+      POSTGRES_PASSWORD: shop
+      POSTGRES_DB: shop
+    volumes:
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shop"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  discovery-server:
+    build: {context: ., args: {MODULE: discovery-server}}
+    ports: ["8761:8761"]
+
+  api-gateway:
+    build: {context: ., args: {MODULE: api-gateway}}
+    ports: ["8080:8080"]
+    environment: *common-env
+    depends_on: [discovery-server]
+
+  user-service:
+    build: {context: ., args: {MODULE: user-service}}
+    environment:
+      <<: *common-env
+      DB_URL: jdbc:postgresql://postgres:5432/userdb
+    depends_on:
+      discovery-server: {condition: service_started}
+      postgres: {condition: service_healthy}
+
+  product-service:
+    build: {context: ., args: {MODULE: product-service}}
+    environment:
+      <<: *common-env
+      DB_URL: jdbc:postgresql://postgres:5432/productdb
+    depends_on:
+      discovery-server: {condition: service_started}
+      postgres: {condition: service_healthy}
+
+  cart-service:
+    build: {context: ., args: {MODULE: cart-service}}
+    environment:
+      <<: *common-env
+      DB_URL: jdbc:postgresql://postgres:5432/cartdb
+    depends_on:
+      discovery-server: {condition: service_started}
+      postgres: {condition: service_healthy}
+
+  order-service:
+    build: {context: ., args: {MODULE: order-service}}
+    environment:
+      <<: *common-env
+      DB_URL: jdbc:postgresql://postgres:5432/orderdb
+    depends_on:
+      discovery-server: {condition: service_started}
+      postgres: {condition: service_healthy}
+
+  payment-service:
+    build: {context: ., args: {MODULE: payment-service}}
+    environment:
+      <<: *common-env
+      DB_URL: jdbc:postgresql://postgres:5432/paymentdb
+    depends_on:
+      discovery-server: {condition: service_started}
+      postgres: {condition: service_healthy}
+
+  notification-service:
+    build: {context: ., args: {MODULE: notification-service}}
+    environment:
+      <<: *common-env
+    depends_on:
+      - discovery-server
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports: ["9090:9090"]
+
+  grafana:
+    image: grafana/grafana:latest
+    ports: ["3000:3000"]
+    depends_on: [prometheus]
+
+volumes:
+  pgdata:

@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 15s
+scrape_configs:
+  - job_name: shop-services
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - api-gateway:8080
+          - user-service:8081
+          - product-service:8082
+          - cart-service:8083
+          - order-service:8084
+          - payment-service:8085
+          - notification-service:8086
